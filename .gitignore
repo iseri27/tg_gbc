@@ -9,6 +9,5 @@
 *.ipynb
 
 ckpts
-examples
 checkpoints
 work_dirs

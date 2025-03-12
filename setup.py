@@ -8,7 +8,7 @@
 from setuptools import find_packages, setup
 
 setup(
-    name="tggbc",
+    name="gbc",
     version="1.0",
     author="Lizhen Xu",
     url="https://github.com/iseri27/tg_gbc",

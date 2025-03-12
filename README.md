@@ -21,3 +21,19 @@ cd tg_gbc
 # 3. install tggbc
 python setup.py develop
 ```
+
+We provide an example of [OPEN](https://github.com/AlmoonYsl/OPEN) in [examples/README.md](examples/README.md) to help you use tgGBC.
+
+# Citation
+
+```bib
+@misc{xu2025tggbc,
+      title={Accelerate 3D Object Detection Models via Zero-Shot Attention Key Pruning}, 
+      author={Lizhen Xu and Xiuxiu Bai and Xiaojun Jia and Jianwu Fang and Shanmin Pang},
+      year={2025},
+      eprint={2503.08101},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2503.08101}, 
+}
+```

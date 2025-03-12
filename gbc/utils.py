@@ -4,7 +4,7 @@ def parse_r(r: int, n: int, layers: int):
     else:
         r_per_layer = r // n
         if r_per_layer % 2 == 1:
-            # 保证 rk 是偶数
+            # Ensure that `r_per_layer` is an even number.
             r_per_layer -= 1
         rs = [r_per_layer for _ in range(n - 1)]
         rs.append(r - sum(rs))

@@ -13,33 +13,27 @@ def trim_gbc(
     k: int = -1,
     **kwargs,
 ) -> Callable:
-    r"""通过分类分数对 query 与 key 进行排序
-    分类分数 C\in\mathbb R^{N_q\times N_C}
-    注意力矩阵 A\in\mathbb R^{N_q\times N_k}
-    挑选出 C 中的最大值 Cm = max(C, dim=1) \in \mathbb R^{N_q}
-    根据 Cm 对 query 进行裁剪
-    计算 Key 的重要性：
-        S_j = \sum\limits_{i=0}^{N_q-1} Cm_i\times A_{i,j}
+    r"""Sort the query and key based on the classification scores.
+        - Classification scores $C\in\mathbb{R}^{Nq \times Nc}$
+        - Attention matrix $A\in\mathbb{R}^{Nq \times Nk}$
+        - Extract the maximum values from $C$: $\hat{C} = \max(C, \text{dim}=1) \in \mathbb{R}^{Nq}$
+        - Calculate the importance of Key:
+            \[
+                S_j = \sum_{i=0}^{{Nq}-1}\times A_{i,j}\times \hat{C}_{i}
+            \]
     Args:
-        cls_scores (Tensor): [B, Nq, num_classes]
-        attn_weights (Tensor): [B, Nq, Nk]
+        - cls_scores (Tensor): $[B, Nq, Nc]$
+        - attn_weights (Tensor): $[B, Nq, Nk]$
     """
 
     if r <= 0:
         return do_nothing
 
-    select = kwargs.get("cls_select", "max")
-
     B, Nq, Nk = attn_weights.shape
 
     with torch.no_grad():
         # [B, Nq, num_classes] -> [B, Nq]
-        if select == "mean":
-            cls_scores = cls_scores.mean(dim=-1).sigmoid()
-        elif select == "min":
-            cls_scores = cls_scores.min(dim=-1).values.sigmoid()
-        else:
-            cls_scores = cls_scores.max(dim=-1).values.sigmoid()
+        cls_scores = cls_scores.max(dim=-1).values.sigmoid()
 
         if k > 0:
             _, cls_indices = (-cls_scores).sort(dim=-1)
@@ -66,7 +60,6 @@ def trim_gbc(
         if not isinstance(x, Tensor):
             return x
         B, N, E = x.shape
-        # 将 indices 用于维度 dim 的重排
         x = torch.gather(x, dim=1, index=indices.unsqueeze(-1).expand(-1, -1, E))
         x = x[:, r:, :]
         return x
