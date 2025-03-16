@@ -22,9 +22,17 @@ cd tg_gbc
 python setup.py develop
 ```
 
-We provide an example of [OPEN](https://github.com/AlmoonYsl/OPEN) in [examples/README.md](examples/README.md) to help you use tgGBC.
+## Examples
 
-# Citation
+### Evaluation
+
+We provide an example of [OPEN](https://github.com/AlmoonYsl/OPEN) in [examples/open/README.md](examples/open/README.md) to help you use tgGBC.
+
+### Training
+
+We provide an example of [StreamPETR](https://github.com/exiawsh/StreamPETR) in [examples/streampetr/README.md](examples/streampetr/README.md) to help you train models with TgGBC.
+
+## Citation
 
 ```bib
 @misc{xu2025tggbc,
