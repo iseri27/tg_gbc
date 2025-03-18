@@ -1,4 +1,4 @@
-We provide an example for OPEN.
+We provide an example for StreamPETR.
 
 # 1. Install StreamPETR
 
@@ -27,7 +27,7 @@ cp examples/streampetr/projects/mmdet3d_plugin/core/hook/gbc_hook.py $StreamPETR
 cp examples/streampetr/projects/mmdet3d_plugin/__init__.py $StreamPETR/projects/mmdet3d_plugin/
 ```
 
-Note: `$StreamPETR` is the place where you install the OPEN project.
+Note: `$StreamPETR` is the place where you install the StreamPETR project.
 
 # 4. Train StreamPETR with tgGBC
 
@@ -70,3 +70,10 @@ custom_hooks = [
 ```
 
 The settings for `r`, `n`, `k`, and `layers` in `custom_hooks` must be the same as those in the `model.pts_bbox_head.transformer.decoder`.
+
+# Checkpoints
+
+Model      | TgGBC | Backbone | ImageSize | mAP    | NDS    | Epochs | Training Time |Download
+:---------:|:-----:|:--------:|:---------:|:------:|:------:|:------:|:-------------:|:--------
+StreamPETR |  w/o  | VovNet   | 1600x640  | 48.92% | 0.5734 |   24   | 2d 14h 30m    |[ckpt](https://1drv.ms/u/c/d94baa301aff3454/Ed3ryK71gdtHkklcQFa_RKsB8Q0B_f_TM7r-c2VPT4d8rQ?e=jaRDgY)
+StreamPETR |  w/   | VovNet   | 1600x640  | 49.12% | 0.5758 |   24   | 2d 13h 39m    |[ckpt](https://1drv.ms/u/c/d94baa301aff3454/EYad52mhBRxIovmHCl7gd8MBEYfA2Pb3nftYvqXzR3r0ig?e=9OcxrT)
