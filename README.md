@@ -2,8 +2,6 @@
 
 This is the implentation for our paper "[Accelerate 3D Object Detection Models via Zero-Shot Attention Key Pruning](https://arxiv.org/abs/2503.08101)"
 
-[中文版本的 README](README_CN.md)
-
 ![](figs/gbc.png)
 
 ## Introduction
