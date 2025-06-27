@@ -1,4 +1,8 @@
-# Accelerate 3D Object Detection Models via Zero-Shot Attention Key Pruning
+# [ICCV2025] Accelerate 3D Object Detection Models via Zero-Shot Attention Key Pruning
+
+This is the implentation for our paper "[Accelerate 3D Object Detection Models via Zero-Shot Attention Key Pruning](https://arxiv.org/abs/2503.08101)"
+
+[中文版本的 README](README_CN.md)
 
 ![](figs/gbc.png)
 
@@ -6,9 +10,14 @@
 
 We propose a zero-shot, retraining-free pruning method that accelerates 3D object detection models via key pruning.
 
+## News
+
+- [2025/06/26]🔥Our paper is accepted by ICCV 2025 🎉🎉🎉.
+- [2025/03/11]🔥We release our code and checkpoints.
+
 ## Get Started
 
-You need `pytorch` to use tgGBC, and prepare any .
+You need `pytorch` to use tgGBC.
 
 ```bash
 # 1. install your pytorch.
