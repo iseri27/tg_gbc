@@ -42,15 +42,18 @@ class GBCHook(Hook):
         i = runner.iter + 1
         if i == 1:
             runner.model.module.pts_bbox_head.transformer.decoder._tgtg_info["r"] = parse_r(0, self.n, self.layers)
-            print("[GBC] Start warming up, set r = 0.")
+            if runner._rank == 0:
+                print("[GBC] Start warming up, set r = 0.")
 
         if self.warmup_iters < i <= self.warmup_iters + self.heating_iters:
             r = int((i - self.warmup_iters) / self.heating_iters * self.r)
             runner.model.module.pts_bbox_head.transformer.decoder._tgtg_info["r"] = parse_r(r, self.n, self.layers)
             if (i - self.warmup_iters) % self.log_interval == 0:
-                print(f"[GBC] Heating, set r = {r}.")
+                if runner._rank == 0:
+                    print(f"[GBC] Heating, set r = {r}.")
 
         if i == self.warmup_iters + self.heating_iters + 1:
             r = self.r
             runner.model.module.pts_bbox_head.transformer.decoder._tgtg_info["r"] = parse_r(r, self.n, self.layers)
-            print(f"[GBC] Heating done, set r = {r}.")
+            if runner._rank == 0:
+                print(f"[GBC] Heating done, set r = {r}.")
