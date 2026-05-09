@@ -44,13 +44,12 @@ We provide an example of [StreamPETR](https://github.com/exiawsh/StreamPETR) in 
 ## Citation
 
 ```bib
-@misc{xu2025tggbc,
-      title={Accelerate 3D Object Detection Models via Zero-Shot Attention Key Pruning}, 
-      author={Lizhen Xu and Xiuxiu Bai and Xiaojun Jia and Jianwu Fang and Shanmin Pang},
-      year={2025},
-      eprint={2503.08101},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2503.08101}, 
+@InProceedings{xu2025gbc,
+    author    = {Xu, Lizhen and Bai, Xiuxiu and Jia, Xiaojun and Fang, Jianwu and Pang, Shanmin},
+    title     = {Accelerate 3D Object Detection Models via Zero-Shot Attention Key Pruning},
+    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+    month     = {October},
+    year      = {2025},
+    pages     = {23085-23094}
 }
 ```
